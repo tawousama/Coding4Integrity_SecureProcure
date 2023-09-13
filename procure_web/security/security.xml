@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="module_category_procurement" model="ir.module.category">
+            <field name="name">Eprocurement</field>
+            <field name="description">Eprocurement Module</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="customer_user" model="res.groups">
+            <field name="name">Customers group</field>
+            <field name="category_id"
+                   ref="module_category_procurement"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="supplier_user" model="res.groups">
+            <field name="name">Suppliers group</field>
+            <field name="category_id"
+                   ref="module_category_procurement"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <!--
+        <record id="visitor_rule" model="ir.rule">
+            <field name="name">Visitor Rule</field>
+            <field name="domain_force">[('creator','=',user.id)]</field>
+            <field name="model_id" ref="module_category_procurement"/>
+            <field name="groups" eval="[4,ref('group_scoring_visiter')]"/>
+        </record>
+        <record id="admin_rule" model="ir.rule">
+            <field name="name">Admin Rule</field>
+            <field name="domain_force">[]</field>
+            <field name="model_id" ref="model_scoring_company"/>
+            <field name="groups" eval="[4,ref('group_scoring_admin')]"/>
+        </record>
+        <record id="visitor_rule_results" model="ir.rule">
+            <field name="name">Visitor Rule for results</field>
+            <field name="domain_force">[('company.creator','=',user.id)]</field>
+            <field name="model_id" ref="model_scoring_results"/>
+            <field name="groups" eval="[4,ref('group_scoring_visiter')]"/>
+        </record>
+        <record id="admin_rule_results" model="ir.rule">
+            <field name="name">Admin Rule for results</field>
+            <field name="domain_force">[]</field>
+            <field name="model_id" ref="model_scoring_results"/>
+            <field name="groups" eval="[4,ref('group_scoring_admin')]"/>
+        </record>-->
+
+    </data>
+</odoo>

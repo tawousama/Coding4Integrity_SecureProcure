@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="category_1" model="eprocurement.activity">
+            <field name="name">Furniture</field>
+        </record>
+        <record id="category_2" model="eprocurement.activity">
+            <field name="name">Computer Equipment</field>
+        </record>
+        <record id="category_3" model="eprocurement.activity">
+            <field name="name">Clothing, footwear and textiles</field>
+        </record>
+        <record id="category_4" model="eprocurement.activity">
+            <field name="name">Food</field>
+        </record>
+        <record id="category_5" model="eprocurement.activity">
+            <field name="name">Industrial equipment and devices</field>
+        </record>
+        <record id="category_6" model="eprocurement.activity">
+            <field name="name">Metals</field>
+        </record>
+        <record id="category_7" model="eprocurement.activity">
+            <field name="name">Construction</field>
+        </record>
+        <record id="category_8" model="eprocurement.activity">
+            <field name="name">Energy, oil products and fuel</field>
+        </record>
+        <record id="category_9" model="eprocurement.activity">
+            <field name="name">Transport and spare parts</field>
+        </record>
+        <record id="category_10" model="eprocurement.activity">
+            <field name="name">Medicine</field>
+        </record>
+        <record id="category_11" model="eprocurement.activity">
+            <field name="name">Stationery and household goods</field>
+        </record>
+
+        <record id="subcategory_1" model="eprocurement.activity.sub">
+            <field name="name">Servers</field>
+            <field name="cat_id">2</field>
+        </record>
+        <record id="subcategory_2" model="eprocurement.activity.sub">
+            <field name="name">Computers</field>
+            <field name="cat_id">2</field>
+        </record>
+        <record id="subcategory_3" model="eprocurement.activity.sub">
+            <field name="name">Television, radio and telecommunications</field>
+            <field name="cat_id">2</field>
+        </record>
+        <record id="subcategory_4" model="eprocurement.activity.sub">
+            <field name="name">Software</field>
+            <field name="cat_id">2</field>
+        </record>
+        <record id="subcategory_5" model="eprocurement.activity.sub">
+            <field name="name">Office Equipement</field>
+            <field name="cat_id">2</field>
+        </record>
+
+        <record id="subcategory_6" model="eprocurement.activity.sub">
+            <field name="name">Chairs, tables, cabinets</field>
+            <field name="cat_id">1</field>
+        </record>
+        <record id="subcategory_7" model="eprocurement.activity.sub">
+            <field name="name">Office furniture</field>
+            <field name="cat_id">1</field>
+        </record>
+        <record id="subcategory_8" model="eprocurement.activity.sub">
+            <field name="name">Home furniture</field>
+            <field name="cat_id">1</field>
+        </record>
+        <record id="subcategory_9" model="eprocurement.activity.sub">
+            <field name="name">School furniture</field>
+            <field name="cat_id">1</field>
+        </record>
+        <record id="brand_1" model="eprocurement.brand">
+            <field name="name">Brand</field>
+            <field name="subcat_id">2</field>
+        </record>
+        <record id="brand_2" model="eprocurement.brand">
+            <field name="name">CPU</field>
+            <field name="subcat_id">2</field>
+        </record>
+        <record id="brand_3" model="eprocurement.brand">
+            <field name="name">RAM</field>
+            <field name="subcat_id">2</field>
+        </record>
+        <record id="brand_4" model="eprocurement.brand">
+            <field name="name">GPU</field>
+            <field name="subcat_id">2</field>
+        </record>
+        <record id="brand_5" model="eprocurement.brand">
+            <field name="name">Memory</field>
+            <field name="subcat_id">2</field>
+        </record>
+        <record id="brand_6" model="eprocurement.brand">
+            <field name="name">Screen</field>
+            <field name="subcat_id">2</field>
+        </record>
+        <record id="brand_7" model="eprocurement.brand">
+            <field name="name">Quality</field>
+            <field name="subcat_id">2</field>
+        </record>
+        <record id="model_1" model="eprocurement.model">
+            <field name="name">Dell</field>
+            <field name="brand_id">1</field>
+        </record>
+        <record id="model_2" model="eprocurement.model">
+            <field name="name">HP</field>
+            <field name="brand_id">1</field>
+        </record>
+        <record id="model_3" model="eprocurement.model">
+            <field name="name">Lenovo</field>
+            <field name="brand_id">1</field>
+        </record>
+        <record id="model_4" model="eprocurement.model">
+            <field name="name">Apple</field>
+            <field name="brand_id">1</field>
+        </record>
+        <record id="model_5" model="eprocurement.model">
+            <field name="name">Asus</field>
+            <field name="brand_id">1</field>
+        </record>
+        <record id="model_6" model="eprocurement.model">
+            <field name="name">Acer</field>
+            <field name="brand_id">1</field>
+        </record>
+        <record id="model_7" model="eprocurement.model">
+            <field name="name">Intel Core i7</field>
+            <field name="brand_id">2</field>
+        </record>
+        <record id="model_8" model="eprocurement.model">
+            <field name="name">Intel Core i5</field>
+            <field name="brand_id">2</field>
+        </record>
+        <record id="model_9" model="eprocurement.model">
+            <field name="name">AMD Ryzen 7</field>
+            <field name="brand_id">2</field>
+        </record>
+        <record id="model_10" model="eprocurement.model">
+            <field name="name">AMD Ryzen 5</field>
+            <field name="brand_id">2</field>
+        </record>
+        <record id="model_11" model="eprocurement.model">
+            <field name="name">8GB</field>
+            <field name="brand_id">3</field>
+        </record>
+        <record id="model_12" model="eprocurement.model">
+            <field name="name">16GB</field>
+            <field name="brand_id">3</field>
+        </record>
+        <record id="model_13" model="eprocurement.model">
+            <field name="name">32GB</field>
+            <field name="brand_id">3</field>
+        </record>
+        <record id="model_13" model="eprocurement.model">
+            <field name="name">64GB</field>
+            <field name="brand_id">3</field>
+        </record>
+        <record id="model_14" model="eprocurement.model">
+            <field name="name">NVIDIA GeForce GTX 1660</field>
+            <field name="brand_id">4</field>
+        </record>
+        <record id="model_15" model="eprocurement.model">
+            <field name="name">AMD Radeon RX 570</field>
+            <field name="brand_id">4</field>
+        </record>
+        <record id="model_16" model="eprocurement.model">
+            <field name="name">Integrated Graphics</field>
+            <field name="brand_id">4</field>
+        </record>
+        <record id="model_17" model="eprocurement.model">
+            <field name="name">256GB SSD</field>
+            <field name="brand_id">5</field>
+        </record>
+        <record id="model_18" model="eprocurement.model">
+            <field name="name">512GB SSD</field>
+            <field name="brand_id">5</field>
+        </record>
+        <record id="model_19" model="eprocurement.model">
+            <field name="name">1TB HDD</field>
+            <field name="brand_id">5</field>
+        </record>
+        <record id="model_20" model="eprocurement.model">
+            <field name="name">1TB SSD</field>
+            <field name="brand_id">5</field>
+        </record>
+        <record id="model_21" model="eprocurement.model">
+            <field name="name">OLED</field>
+            <field name="brand_id">6</field>
+        </record>
+        <record id="model_22" model="eprocurement.model">
+            <field name="name">LED</field>
+            <field name="brand_id">6</field>
+        </record>
+        <record id="model_23" model="eprocurement.model">
+            <field name="name">LCD</field>
+            <field name="brand_id">6</field>
+        </record>
+        <record id="model_24" model="eprocurement.model">
+            <field name="name">High</field>
+            <field name="brand_id">7</field>
+        </record>
+        <record id="model_25" model="eprocurement.model">
+            <field name="name">Medium</field>
+            <field name="brand_id">7</field>
+        </record>
+        <record id="model_26" model="eprocurement.model">
+            <field name="name">Low</field>
+            <field name="brand_id">7</field>
+        </record>
+    </data>
+</odoo>

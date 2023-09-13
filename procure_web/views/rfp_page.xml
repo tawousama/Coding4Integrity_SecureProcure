@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="menu_offer_form" model="website.menu">
+        <field name="name">Offers</field>
+        <field name="url">/offer-request</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">50</field>
+    </record>
+    <template id="offer_list" name="Offers">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <h2>Offers</h2>
+                        <div t-if="offers != False">
+                            <table class="table table-borderless m-0">
+                                <tbody>
+                                    <t t-foreach="offers" t-as="offer">
+                                        <tr>
+                                            <td colspan="2">
+                                                <span>
+                                                    <t t-esc="offer.title"/>
+                                                </span>
+                                            </td>
+                                            <td colspan="2">
+                                                <span>
+                                                    <t t-esc="offer.customer.name"/>
+                                                </span>
+                                            </td>
+                                            <td colspan="2">
+                                                <span>
+                                                    <t t-esc="offer.activity.name"/>
+                                                </span>
+                                            </td>
+                                            <td colspan="2">
+                                                <button class="btn btn-primary">See more</button>
+                                            </td>
+
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div t-else="">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </t>
+
+    </template>
+</odoo>

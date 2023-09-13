@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="custom_website_login_type" inherit_id="web.login" name="Custom Website Login">
+        <xpath expr="//div[@class='form-group field-login']" position="before">
+            <!-- Add user type selection field -->
+            <div class="form-group">
+                <label>Select User Type:</label>
+                <input type="radio" name="user_type" value="customer" id="customer"/>
+                <label for="user_type1">Customer</label>
+                <input type="radio" name="user_type" value="supplier" id="supplier"/>
+                <label for="user_type2">Supplier</label>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

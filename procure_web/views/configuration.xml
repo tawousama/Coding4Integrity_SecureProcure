@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.actions.act_window" id="condition_action_window">
+            <field name="name">Condition</field>
+            <field name="res_model">eprocurement.condition</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="condition_tree_view">
+            <field name="name">Condition List</field>
+            <field name="model">eprocurement.condition</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="condition_view_form" model="ir.ui.view">
+            <field name="name">eprocurement.condition.form</field>
+            <field name="model">eprocurement.condition</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="activity_action_window">
+            <field name="name">Activity</field>
+            <field name="res_model">eprocurement.activity</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="activity_tree_view">
+            <field name="name">Activity List</field>
+            <field name="model">eprocurement.activity</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="activity_view_form" model="ir.ui.view">
+            <field name="name">eprocurement.activity.form</field>
+            <field name="model">eprocurement.activity</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="stage_action_window">
+            <field name="name">Stages</field>
+            <field name="res_model">eprocurement.offer.stage</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <record model="ir.ui.view" id="activity_tree_view">
+            <field name="name">Stage List</field>
+            <field name="model">eprocurement.offer.stage</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="is_won"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

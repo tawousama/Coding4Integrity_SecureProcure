@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="seq_offer" model="ir.sequence">
+        <field name="name">RFP</field>
+        <field name="code">eprocurement.offer</field>
+        <field name="active">TRUE</field>
+        <field name="prefix">RFP/%(range_year)s/</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="use_date_range" eval="True"/>
+    </record>
+    <record id="seq_proposal" model="ir.sequence">
+        <field name="name">Proposal</field>
+        <field name="code">eprocurement.proposal</field>
+        <field name="active">TRUE</field>
+        <field name="prefix">P/%(range_year)s/</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="use_date_range" eval="True"/>
+    </record>
+</odoo>

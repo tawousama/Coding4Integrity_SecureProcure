@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.actions.act_window" id="offer_action_window">
+            <field name="name">RFPs</field>
+            <field name="res_model">eprocurement.offer</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="proposal_tree_view">
+            <field name="name">RFP List</field>
+            <field name="model">eprocurement.offer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="title"/>
+                    <field name="date_creation"/>
+                    <field name="date_publish" attrs="{'invisible': [('stage_id', '=', 'draft')]}"/>
+                    <field name="conditions"/>
+                    <field name="activity"/>
+                    <field name="stage_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Sessions Kanban view -->
+        <record id="view_eprocurement_offer_kanban" model="ir.ui.view">
+            <field name="name">eprocurement.offer.kanban</field>
+            <field name="model">eprocurement.offer</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id" sample="1">
+                    <field name="stage_id"/>
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click #{kanban_color(record.color.raw_value)}">
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            <span>Ref:</span>
+                                            <field name="name"/>
+                                        </li>
+                                        <li>
+                                            <span>Title:</span>
+                                            <field name="title"/>
+                                        </li>
+                                        <li>
+                                            <span>Customer:</span>
+                                            <field name="customer"/>
+                                        </li>
+                                        <li>
+                                            <span>Category:</span>
+                                            <field name="activity"/>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <!-- Additional fields here -->
+                            </div>
+                        </t>
+                        <t t-name="kanban-column">
+                            <div class="oe_kanban_column" t-att-data-id="column.id">
+                                <div class="oe_kanban_column_title">
+                                    <field name="name" widget="string"/>
+                                </div>
+                                <t t-foreach="column.sessions_ids" t-as="session">
+                                    <div class="oe_kanban_card" t-att-data-session-id="session.id">
+                                        <field name="name"/>
+                                        <field name="title"/>
+                                        <!-- Additional fields here -->
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+        <record id="offer_view_form" model="ir.ui.view">
+            <field name="name">eprocurement.offer.form</field>
+            <field name="model">eprocurement.offer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="confirm_rfp" string="Share" class="oe_highlight oe_inline" type="object"
+                                attrs="{'invisible': [('stage_id', '!=', 'draft')]}"/>
+                        <field name="stage_id" widget="statusbar" class="oe_inline"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" attrs="{'invisible': [('stage_id', '=', 'draft')]}"
+                                    type="object" name="open_proposals" icon="fa-usd" string="Proposals">
+                            </button>
+                        </div>
+                        <group>
+                            <div class="oe_title">
+                                <h1>
+                                    <div class="d-flex">
+                                        <field class="o_text_overflow" readonly="1" name="name"/>
+                                    </div>
+                                </h1>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="title" attrs="{'readonly': [('stage_id', '!=', 'draft')]}"/>
+                            <field name="date_creation" attrs="{'readonly': [('stage_id', '!=', 'draft')]}"/>
+                            <field name="date_publish"  readonly="1" attrs="{'invisible': [('stage_id', '=', 'draft')]}"/>
+                            <field name="conditions" attrs="{'readonly': [('stage_id', '!=', 'draft')]}"
+                                   widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="activity" attrs="{'readonly': [('stage_id', '!=', 'draft')]}"/>
+                            <field name="subcategory" attrs="{'readonly': [('stage_id', '!=', 'draft')]}"/>
+                            <field name="detail_ids"
+                                   attrs="{'readonly': [('stage_id', '!=', 'draft')], 'invisible': [('subcategory', '=', False)]}">
+                                <tree editable="bottom">
+                                    <field name="brand" domain="[('subcat_id.id', '=', 'subcategory')]"/>
+                                    <field name="model" domain="[('brand_id.id', '=', brand)]"/>
+                                </tree>
+                            </field>
+                            <field name="customer" attrs="{'readonly': [('stage_id', '!=', 'draft')]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

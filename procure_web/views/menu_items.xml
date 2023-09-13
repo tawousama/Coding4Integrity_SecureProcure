@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="eprocurement_menu"
+                  name="E-Procurement"
+                  web_icon="eprocurment,static/description/icon.png"
+                  sequence="1">
+            <menuitem id="menu_offer"
+                          name="RFPs"
+                          action="offer_action_window"
+                          sequence="1"/>
+            <menuitem id="menu_proposal"
+                          name="Proposals"
+                          action="proposal_action_window"
+                          sequence="20"/>
+            <menuitem id="menu_configuration"
+                      name="Configuration"
+                      sequence="20">
+                <menuitem id="menu_condition"
+                          name="Condition"
+                          action="condition_action_window"
+                          sequence="1"/>
+                <menuitem id="Activity"
+                          action="activity_action_window"
+                          sequence="2"/>
+                <menuitem id="Stages"
+                          action="stage_action_window"
+                          sequence="3"/>
+            </menuitem>
+        </menuitem>
+    </data>
+</odoo>

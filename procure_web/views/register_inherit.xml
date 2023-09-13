@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="account_sign_up_details_type_id" inherit_id="auth_signup.fields">
+        <xpath expr="//div[@class='form-group field-name']" position="after">
+            <div class="form-group" t-if="customer">
+                <label>Representative name:</label>
+                <input type="text" name="representative_name" value="representative_name" id="representative_name"
+                       required="required"/>
+                <label>Representative email:</label>
+                <input type="text" name="representative_email" value="representative_email" id="representative_email"
+                       required="required"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='form-group field-confirm_password']" position="after">
+            <div class="form-group">
+                <label>Select User Type:</label>
+                <select id="user_type" name="user_type" >
+                    <option t-set="user_type" t-att-value="customer">Customer</option>
+                    <option t-set="user_type" t-att-value="supplier">Supplier</option>
+                </select>
+            </div>
+            <div class="form-group" t-if="user_type == 'customer'">
+                <label>Upload File:</label>
+                <input type="file" name="justif_file" value="justif_file" id="justif_file"/>
+            </div>
+
+        </xpath>
+        <xpath expr="//label[@for='name']" position="replace" t-if="customer">
+            <label for="name">Authority Name:</label>
+        </xpath>
+    </template>
+</odoo>

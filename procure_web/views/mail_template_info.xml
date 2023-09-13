@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="response_mail_template" model="mail.template">
+            <field name="name">Request for Proposal</field>
+            <field name="model_id" ref="eprocurment.model_eprocurement_offer"/>
+            <field name="subject">Request for Proposal</field>
+            <field name="email_from">{{ user.email }}</field>
+            <field name="email_to">{{ self.env['res.partner'].search([('activity', 'in', ''}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Bonjour <t t-out="object.nom_prenom or ''">Brandon Freeman</t>,
+                        <br/>
+                        <br/>
+                        Nous vous ecrivons ce mail afin de vous informer la décision sur votre demande  <t t-out="object.name or ''">D/20XX/XXX</t>
+                        <br/>
+                        <br/>
+                        Veuillez trouver ci-joint le rapport
+                        <br/>
+                        <br/>
+                        Sincères salutations,
+                        <t t-if="user.signature">
+                            <br/>
+                            <t t-out="user.signature or ''">--<br/>Mitchell Admin
+                            </t>
+                        </t>
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="workflow_credit_cons.report_decision"/>
+            <field name="report_name">{{ (object.name or '').replace('/','_') }} Decision</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

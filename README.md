@@ -20,9 +20,9 @@ Our solution consists of three main components:
 
 To get started with our solution, please refer to the individual components' documentation within this repository:
 
-- [Web Platform Documentation](./web-platform/README.md)
-- [Blockchain Integration Documentation](./blockchain/README.md)
-- [AI Model Documentation](./ai-model/README.md)
+- [Web Platform Documentation](./procure_web/README.md)
+- [Blockchain Integration Documentation](./procure_web/README.md)
+- [AI Model Documentation](./procure_ai/README.md)
 
 Feel free to explore each component and tailor our solution to your organization's specific needs.
 
